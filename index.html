@@ -21,7 +21,17 @@
 </head>
 <body class="">
     <!-- main body -->
-    
+
+    <!-- alert design -->
+    <div class="d-none large position-fixed top-0 bottom-0 start-0 end-0 d-flex align-items-center justify-content-center z-3">
+        <div class="box position-relative d-flex justify-content-center align-items-center rounded-3 bg-danger" id="box">
+            <i class="fa-regular fa-circle-xmark fa-xl text-white position-absolute m-2"></i>
+            <div class="message">
+                <label class="fs-5 fw-bold text-white">Invalid Bookmark Name !</label>
+            </div>
+        </div>
+    </div>
+
     <!-- form to input bookmarks -->
     <div class="container d-flex flex-column justify-content-center align-items-center rounded-3 position-relative">
         <div class="darkToggle position-absolute top-0 end-0">
@@ -34,7 +44,7 @@
             </label>
         </div>
         <h1 class="text-center my-5 before">Bookmarker</h1>
-        <form action="" class="mb-4 w-100">
+        <div class="formInput mb-4 w-100">
             <div class="w-100 text-center">
                 <h2 class="text-center my-3">
                     <i class="fa-solid fa-bookmark"></i>
@@ -59,7 +69,7 @@
             <div class="btnPlace w-100 text-center">
                 <button class="btn btn-submit text-center mb-4" onclick="addbookmark()">Submit</button>
             </div>
-        </form>
+        </div>
 
         <!-- table to view data -->
         <table class="table table-hover my-4 text-center">

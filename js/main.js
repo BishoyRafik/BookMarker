@@ -1,16 +1,30 @@
 var siteName = document.getElementById("siteName");
 var siteUrl = document.getElementById("siteUrl");
-var bookmarks = [] 
+var closBtn = document.querySelector('.fa-circle-xmark');
+var large = document.querySelector('.large');
+var bookmarks = [];
+
+if(localStorage.getItem("bookmark") !=null ){
+    bookmarks = JSON.parse(localStorage.getItem("bookmark"));
+    displaybookmarks();
+}
 
 function addbookmark(){
-    var bookmark = {
-        Sname : siteName.value,
-        Surl : siteUrl.value, 
+    if(validateBookmark() == true){
+        var bookmark = {
+            Sname : siteName.value,
+            Surl : siteUrl.value, 
+        }
+        bookmarks.push(bookmark);
+        localStorage.setItem("bookmark", JSON.stringify(bookmarks));
+        console.log(bookmarks);
+        clearData();
+        displaybookmarks();
+    } else {
+        large.classList.remove('d-none');
+        closBtn.addEventListener('click' , close);
+        clearData();
     }
-    bookmarks.push(bookmark);
-    console.log(bookmarks);
-    clearData();
-    displaybookmarks();
 }
 
 function clearData(){
@@ -19,7 +33,7 @@ function clearData(){
 }
 
 function displaybookmarks(){
-    var container = ''
+    var container = '';
     for (var i = 0 ; i < bookmarks.length; i++){
         container +=
         `
@@ -27,13 +41,13 @@ function displaybookmarks(){
         <td>${i}</td>
         <td>${bookmarks[i].Sname}</td>
         <td>
-            <button class="btn btn-success">
+            <button onclick="vistURL(${i})" class="btn btn-success">
                 <i class="fa-solid fa-eye"></i>
-                Visit
+                <a href="${bookmarks[i].Surl}" target="_blank" class="text-decoration-none text-white">Visit</a>
             </button>
         </td>
         <td>
-            <button class="btn btn-danger">
+            <button onclick="deleteBookmark(${i})" class="btn btn-danger">
                 <i class="fa-solid fa-trash-alt"></i>
                 Delete
             </button>
@@ -43,3 +57,35 @@ function displaybookmarks(){
     }
     document.getElementById("display").innerHTML=container;
 }
+
+function close(){
+    // console.log('Closed');
+    large.classList.add('d-none');
+}
+
+function deleteBookmark(index){
+    bookmarks.splice(index,1);
+    console.log(bookmarks);
+    localStorage.setItem("bookmark", JSON.stringify(bookmarks));
+    displaybookmarks();
+}
+
+function vistURL(x){
+    console.log(x);
+}
+
+function validateBookmark(){
+    var reg = /^[a-z]{1,8}$/i;
+    if (reg.test(siteName.value) == true){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+
+large.addEventListener('click' , function(e){
+    if (e.target == large){
+        close();
+    }
+})

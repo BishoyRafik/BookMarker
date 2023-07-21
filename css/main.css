@@ -110,9 +110,9 @@ h2{
     font-size: 25px;
 }
 
-form{
-    border-top: 2px black dotted;
-    border-bottom: 2px black dotted;
+.formInput{
+    border-top: 2px var(--fontColor) dotted;
+    border-bottom: 2px var(--fontColor) dotted;
 }
 
 .btn-submit{
@@ -128,4 +128,18 @@ form{
 
 table{
     width: 800px;
+}
+
+/* alert */
+.large{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.box{
+    height: 25%;
+    width: 50%;
+}
+.fa-circle-xmark{
+    top: 10%;
+    right: 2%;
 }
