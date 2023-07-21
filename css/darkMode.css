@@ -1,0 +1,46 @@
+:root{
+    --fontColor: #352E28;
+    --signColor: #FEC260;
+    --backColor: #F7ECDE;
+    --gradient: linear-gradient(to right, rgb(41, 151, 41), 45%, rgb(193, 193, 66), 55%, rgb(193, 193, 66));
+    --btn-color: #cb4f2d;
+    --btnHoverColor: #9b1f24;
+    --almentSign:#EB2027;
+    --secBackColor: #0A6E89;
+    --redCyanGrad: linear-gradient(to right, #9b1f24, 49%,  #0A6E89, 52%, #0A6E89);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: black;
+    color: white;
+}
+h1::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 5px;
+    height: 12%;
+    background-color: var(--secBackColor);
+}
+
+h1:hover::before{
+    height: 50%;
+}
+
+h2{
+    background-image: var(--redCyanGrad);
+}
+
+.btn-submit{
+    background-color: var(--almentSign) ; 
+}
+
+.btn-submit:hover{
+    background-color: var(--btnHoverColor);
+}

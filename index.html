@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap library -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fontaweasome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- main css file -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- media query -->
+    <link rel="stylesheet" href="css/media.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/bookmark-28.png" type="image/x-icon">
+    <title>Bookmarker</title>
+</head>
+<body>
+    <!-- main body -->
+    
+    <!-- form to input bookmarks -->
+    <div class="container d-flex flex-column justify-content-center align-items-center rounded-3">
+        <h1 class="text-center my-5 before">Bookmarker</h1>
+        <form action="" class="mb-4 w-100">
+            <div class="w-100 text-center">
+                <h2 class="text-center my-3">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark your favorite sites
+                    <i class="fa-solid fa-bookmark"></i>
+                </h2>
+            </div>
+            <div class="field">
+                <label for="siteName" class="my-2 fw-bold">
+                    <i class="fa-solid fa-book-bookmark me-2"></i>
+                    Site Name
+                </label>
+                <input type="text" id="siteName" class="form-control  mb-4 fw-bold" placeholder="Bookmark Name">
+            </div>
+            <div class="field">
+                <label for="siteUrl" class="my-2 fw-bold">
+                    <i class="fa-solid fa-chain me-2"></i>
+                    Site URL
+                </label>
+                <input type="url" id="siteUrl" class="form-control mb-4 fw-bold" placeholder="Website URL">
+            </div>
+            <div class="btnPlace w-100 text-center">
+                <button class="btn btn-submit text-center mb-4" onclick="addbookmark()">Submit</button>
+            </div>
+        </form>
+
+        <!-- table to view data -->
+        <table class="table table-hover my-4 text-center">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="display">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- js bootstrap link -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- main JS file -->
+    <script src="js/main.js"></script>
+</body>
+</html>
