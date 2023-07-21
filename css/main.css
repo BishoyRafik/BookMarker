@@ -2,12 +2,22 @@
     --fontColor: #352E28;
     --signColor: #FEC260;
     --backColor: #F7ECDE;
-    --gradient: linear-gradient(to right, rgb(41, 151, 41), 45%, rgb(193, 193, 66), 55%, rgb(193, 193, 66));
     --btn-color: #cb4f2d;
-    --btnHoverColor: #9b1f24;
-    --almentSign:#EB2027;
-    --secBackColor: #0A6E89;
-    --redCyanGrad: linear-gradient(to right, #9b1f24, 49%,  #0A6E89, 52%, #0A6E89);
+    --btn-hover: #BB4120;
+    --input-back: white;
+    --shadow-color:rgba(255, 255, 255, 0.4);
+    --gradient: linear-gradient(to right, rgb(41, 151, 41), 45%, rgb(193, 193, 66), 55%, rgb(193, 193, 66));
+}
+.darkmode{
+    --fontColor: white;
+    --signColor: #0A6E89;
+    --backColor: black;
+    --btn-color: #EB2027;
+    --btn-hover: #9b1f24;
+    --input-back: black;
+    --shadow-color: rgba(0, 0, 0, 0.4); 
+    --gradient: linear-gradient(to right, #9b1f24, 49%,  #0A6E89, 52%, #0A6E89);
+      
 }
 *{
     box-sizing: border-box;
@@ -15,11 +25,44 @@
     padding: 0;
     scroll-behavior: smooth;
 }
+::selection{
+    background-color: grey;
+    color: white;
+}
+.darkToggle::selection{
+    background-color: transparent;
+}
 body{
     background-color: var(--backColor);
-    /*for dark theme activate below and comment up*/
-    /* background-color: black;
-    color: white; */
+    color: var(--fontColor);
+   
+}
+
+.field input{
+    background-color: var(--input-back);
+    color: var(--fontColor);
+}
+.field input:focus{
+    background-color: var(--input-back);
+    color: var(--fontColor);
+}
+.field input::placeholder{
+    color: var(--fontColor);
+}
+.fa-sun{
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.fa-moon{
+    color: var(--fontColor);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
 }
 
 h1{
@@ -41,7 +84,7 @@ h1::before{
     height: 12%;
     /*commentthisfordarktheme*/
     background-color: var(--signColor);
-    /* background-color: var(--secBackColor); */
+
     z-index: -1;
     transition: height 350ms;
     -webkit-transition: height 350ms;
@@ -57,7 +100,7 @@ h1:hover::before{
 h2{
     /*Comment this for dark theme*/
     background-image: var(--gradient); 
-    /* background-image: var(--redCyanGrad); */
+
 
     -webkit-background-clip: text;
     -o-background-clip: text;
@@ -74,14 +117,12 @@ form{
 
 .btn-submit{
     background-color: var(--btn-color) ; 
-    /* background-color: var(--almentSign) ;  */
     color: white;
     padding-inline: 50px;
 }
 
 .btn-submit:hover{
-    background-color: #BB4120;
-    /* background-color: var(--btnHoverColor); */
+    background-color: var(--btn-hover);
     color: white;
 }
 

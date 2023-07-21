@@ -19,11 +19,20 @@
     <link rel="shortcut icon" href="images/bookmark-28.png" type="image/x-icon">
     <title>Bookmarker</title>
 </head>
-<body>
+<body class="">
     <!-- main body -->
     
     <!-- form to input bookmarks -->
-    <div class="container d-flex flex-column justify-content-center align-items-center rounded-3">
+    <div class="container d-flex flex-column justify-content-center align-items-center rounded-3 position-relative">
+        <div class="darkToggle position-absolute top-0 end-0">
+            <input type="checkbox" name="theme" id="modeToggle" hidden >
+            <label for="modeToggle">
+                <i class="fa-regular fa-moon fa-2x m-3"></i>
+            </label>
+            <label for="modeToggle">
+                <i class="fa-regular fa-sun d-none fa-2x m-3"></i>
+            </label>
+        </div>
         <h1 class="text-center my-5 before">Bookmarker</h1>
         <form action="" class="mb-4 w-100">
             <div class="w-100 text-center">
@@ -66,6 +75,32 @@
             </tbody>
         </table>
     </div>
+    
+<!-- darkmode script -->
+    <script>
+        var toggle = document.getElementById('modeToggle');
+        var bodyElement = document.querySelector("body");
+        var table = document.querySelector('table');
+        var sun = document.querySelector(".fa-sun");
+        var moon = document.querySelector(".fa-moon");
+        var darkMode = false;
+
+        toggle.addEventListener("change", function(e){
+            darkMode = e.target.checked;
+            if(darkMode == true){
+                bodyElement.classList.add('darkmode');
+                table.classList.add('table-dark')
+                sun.classList.remove("d-none")
+                moon.classList.add('d-none')
+            }else{
+                bodyElement.classList.remove('darkmode');
+                table.classList.remove('table-dark')
+                sun.classList.add("d-none")
+                moon.classList.remove('d-none')
+            }
+        })
+
+    </script>
 
     <!-- js bootstrap link -->
     <script src="js/bootstrap.bundle.min.js"></script>
