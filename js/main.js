@@ -43,7 +43,8 @@ function displaybookmarks(){
         <td>
             <button onclick="vistURL(${i})" class="btn btn-success">
                 <i class="fa-solid fa-eye"></i>
-                <a href="${bookmarks[i].Surl}" target="_blank" class="text-decoration-none text-white">Visit</a>
+                <a href="https://${bookmarks[i].Surl}" target="_blank" class="text-decoration-none text-white">Visit</a>
+
             </button>
         </td>
         <td>
@@ -56,6 +57,7 @@ function displaybookmarks(){
         `
     }
     document.getElementById("display").innerHTML=container;
+    console.log(container);
 }
 
 function close(){
